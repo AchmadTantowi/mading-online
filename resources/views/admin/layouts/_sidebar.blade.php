@@ -21,7 +21,7 @@
           </a>
         </li>
         <li class="{{ Request::is('admin/content') ? 'active' : '' }}">
-          <a href="/admin/content">
+          <a href="/mading-online/public/admin/content">
           <i class="fa fa-edit"></i> <span>Content</span>
             <span class="pull-right-container"></span>
           </a>
