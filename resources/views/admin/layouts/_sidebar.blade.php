@@ -31,6 +31,13 @@
             <span class="pull-right-container"></span>
           </a>
         </li>
+        <li class="{{ Request::is('admin/user') ? 'active' : '' }}">
+          <!-- <a href="/mading-online/public/admin/content"> -->
+          <a href="/admin/user">
+          <i class="fa fa-user"></i> <span>Users</span>
+            <span class="pull-right-container"></span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

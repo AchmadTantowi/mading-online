@@ -34,4 +34,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/content', 'Admin\ContentController@index');
     Route::get('/content/add', 'Admin\ContentController@add');
     Route::post('/content/save-content', 'Admin\ContentController@saveContent');
+
+    Route::get('/user', 'Admin\UserController@index');
 });
