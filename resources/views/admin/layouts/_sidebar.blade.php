@@ -4,7 +4,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
+          @if(is_null(Auth::user()->avatar))
+          <img src="https://s3.amazonaws.com/wll-community-production/images/no-avatar.png" class="img-circle" alt="User Image">
+          @else
           <img src="{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
+          @endif
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -21,7 +25,8 @@
           </a>
         </li>
         <li class="{{ Request::is('admin/content') ? 'active' : '' }}">
-          <a href="/mading-online/public/admin/content">
+          <!-- <a href="/mading-online/public/admin/content"> -->
+          <a href="/admin/content">
           <i class="fa fa-edit"></i> <span>Content</span>
             <span class="pull-right-container"></span>
           </a>

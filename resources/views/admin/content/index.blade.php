@@ -11,7 +11,8 @@
     
     <!-- Main content -->
     <section class="content">
-    <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a>
+    <!-- <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a> -->
+    <a href="/add" class="btn btn-primary">+ Add</a>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">

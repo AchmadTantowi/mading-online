@@ -42,7 +42,8 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/mading-online/public/admin/dashboard" class="logo">
+    <!-- <a href="/mading-online/public/admin/dashboard" class="logo"> -->
+    <a href="/admin/dashboard" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>M</b>_O</span>
       <!-- logo for regular state and mobile devices -->
@@ -60,13 +61,22 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              @if(is_null(Auth::user()->avatar))
+              <img src="https://s3.amazonaws.com/wll-community-production/images/no-avatar.png" class="user-image" alt="User Image">
+              @else
               <img src="{{ Auth::user()->avatar }}" class="user-image" alt="User Image">
+              @endif
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
+              @if(is_null(Auth::user()->avatar))
+              <img src="https://s3.amazonaws.com/wll-community-production/images/no-avatar.png" class="img-circle" alt="User Image">
+              @else
+              <img src="{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
+              @endif
+            
                 <p>
                     {{ Auth::user()->name }}
                 </p>
