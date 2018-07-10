@@ -29,8 +29,10 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        $contents = Content::get();
-        return view('welcome', compact('contents'));
+        $contents = Content::where('category', 'Information')->where('active', 1)->get();
+        $banners = Content::where('category', 'Banner')->where('active', 1)->get();
+        $quotes = Content::where('category', 'Quote')->where('active', 1)->get();
+        return view('welcome', compact('contents', 'banners', 'quotes'));
     }
 
     public function logout(){

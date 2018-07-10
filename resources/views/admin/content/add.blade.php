@@ -33,9 +33,21 @@
                   <label for="exampleInputEmail1">Title</label>
                   <input type="text" name="title" class="form-control" id="exampleInputEmail1">
                 </div>
-                <label for="exampleInputEmail1">Image</label>
-                <div class="input-group control-group increment" >
-                  <input type="file" name="filename[]" class="form-control">
+                <div class="form-group">
+                  <label>Category</label>
+                  <select class="form-control" name="category" id="category">
+                    <option value="Quote">Quote</option>
+                    <option value="Information">Information</option>
+                    <option value="Banner">Banner</option>
+                  </select>
+                </div>
+                <label for="exampleInputEmail1" id="image-label">Image</label>
+                <div class="input-group control-group increment" id="image">
+                  <input type="file" name="filename" class="form-control" >
+                </div>
+                <!-- <label for="exampleInputEmail1" id="image-label">Image</label>
+                <div class="input-group control-group increment" id="image">
+                  <input type="file" name="filename[]" class="form-control" >
                   <div class="input-group-btn"> 
                     <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                   </div>
@@ -47,8 +59,8 @@
                       <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
                     </div>
                   </div>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <div class="form-group" id="contents">
                     <label for="exampleInputPassword1">Content</label>
                     <textarea id="editor1" name="content" rows="10" cols="80">
                         
@@ -75,6 +87,21 @@
     <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
     <script>
     $(function () {
+
+        $('#image').hide(); 
+        $('#image-label').hide(); 
+        $('#category').change(function(){
+            if($('#category').val() == 'Banner') {
+                $('#image').show(); 
+                $('#image-label').show();
+                $('#contents').hide(); 
+            } else {
+                $('#image').hide(); 
+                $('#image-label').hide();
+                $('#contents').show(); 
+            } 
+        });
+       
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
         CKEDITOR.replace('editor1');

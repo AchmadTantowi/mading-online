@@ -27,32 +27,59 @@ class ContentController extends Controller
         return view('admin.content.add');
     }
 
+    public function delete($id){
+        $content = Content::find($id);
+        $content->delete();
+        if($content){
+            alert()->success('Deleted','Successfully');
+            return redirect('/admin/content');
+        }
+    }
+
     public function saveContent(Request $request)
     {
+        $category = $request->get('category');
+        $image = $request->file('filename');
+
         $this->validate($request, [
             'title' => 'required',
-            'filename' => 'required',
-            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            // 'filename' => 'required',
+            // 'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         DB::beginTransaction();
         try{
-            $content = new Content;
-            $content->title = $request->get('title');
-            $content->content = $request->get('content');
-            $content->save();
 
-            foreach($request->file('filename') as $image)
-            {
+            if($category == 'Banner'){
                 $name = $image->getClientOriginalName();
 
-                $imageContent = new ImageContent;
-                $imageContent->content_id = $content->id;
-                $imageContent->image = $name;
-                $imageContent->save();
-                // dump($name);
+                $content = new Content;
+                $content->title = $request->get('title');
+                $content->category = $category;
+                $content->image = $name;
+                $content->active = 1;
+                $content->save();
                 $image->move(public_path().'/images/', $name);
+                
+            } else {
+                $content = new Content;
+                $content->title = $request->get('title');
+                $content->category = $category;
+                $content->content = $request->get('content');
+                $content->active = 1;
+                $content->save();
             }
+
+            // foreach($request->file('filename') as $image)
+            // {
+            //     $name = $image->getClientOriginalName();
+
+            //     $imageContent = new ImageContent;
+            //     $imageContent->content_id = $content->id;
+            //     $imageContent->image = $name;
+            //     $imageContent->save();
+            //     $image->move(public_path().'/images/', $name);
+            // }
 
             DB::commit();
        

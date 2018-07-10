@@ -12,7 +12,7 @@
     <!-- Main content -->
     <section class="content">
     <!-- <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a> -->
-    <a href="/add" class="btn btn-primary">+ Add</a>
+    <a href="/admin/user/add" class="btn btn-primary">+ Add</a>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -37,7 +37,9 @@
                   <td>{{ $user->name }}</td>
                   <td>{{ $user->email }}</td>
                   <td>
-                    
+                    <a href="/admin/user/delete/{{ $user->id }}">
+                      Delete
+                    </a>
                   </td>
                 </tr>
                 @endforeach

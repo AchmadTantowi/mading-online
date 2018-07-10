@@ -12,7 +12,7 @@
     <!-- Main content -->
     <section class="content">
     <!-- <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a> -->
-    <a href="/add" class="btn btn-primary">+ Add</a>
+    <a href="/admin/content/add" class="btn btn-primary">+ Add</a>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -35,8 +35,11 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $content->title }}</td>
                   <td>
-                    <a href="/information/{{ $content->id }}" target="_blank">
+                    <!-- <a href="/information/{{ $content->id }}" target="_blank">
                     <i class="fa fa-eye"></i> View 
+                    </a> -->
+                    <a href="/admin/content/delete/{{ $content->id }}">
+                    Delete
                     </a>
                   </td>
                 </tr>

@@ -33,7 +33,11 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/content', 'Admin\ContentController@index');
     Route::get('/content/add', 'Admin\ContentController@add');
+    Route::get('/content/delete/{id}', 'Admin\ContentController@delete');
     Route::post('/content/save-content', 'Admin\ContentController@saveContent');
 
+    Route::get('/user/add', 'Admin\UserController@add');
+    Route::post('/user/save-user', 'Admin\UserController@save');
+    Route::get('/user/delete/{id}', 'Admin\UserController@delete');
     Route::get('/user', 'Admin\UserController@index');
 });

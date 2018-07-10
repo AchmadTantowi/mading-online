@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     protected $fillable = [
-        'title', 'content'
+        'title', 'category', 'image', 'content', 'active'
     ];
 }
