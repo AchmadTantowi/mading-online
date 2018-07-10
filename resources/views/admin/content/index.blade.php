@@ -11,8 +11,8 @@
     
     <!-- Main content -->
     <section class="content">
-    <!-- <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a> -->
-    <a href="/admin/content/add" class="btn btn-primary">+ Add</a>
+    <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a>
+    <!-- <a href="/admin/content/add" class="btn btn-primary">+ Add</a> -->
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -25,6 +25,7 @@
                 <tr>
                   <th>No</th>
                   <th>Title</th>
+                  <th>Category</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -34,11 +35,13 @@
                 <tr>
                   <td>{{ $no++ }}</td>
                   <td>{{ $content->title }}</td>
+                  <td>{{ $content->category }}</td>
                   <td>
                     <!-- <a href="/information/{{ $content->id }}" target="_blank">
                     <i class="fa fa-eye"></i> View 
                     </a> -->
-                    <a href="/admin/content/delete/{{ $content->id }}">
+                    <a href="/mading-online/public/admin/content/delete/{{ $content->id }}">
+                    <!-- <a href="/admin/content/delete/{{ $content->id }}"> -->
                     Delete
                     </a>
                   </td>
