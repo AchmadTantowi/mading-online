@@ -22,8 +22,8 @@
           </ul>
         </div>
         @endif   -->
-        <!-- <form method="POST" action="/mading-online/public/admin/content/save-content"> -->
-        <form method="POST" action="/admin/user/save-user">
+        <form method="POST" action="/mading-online/public/admin/user/save-content">
+        <!-- <form method="POST" action="/admin/user/save-user"> -->
               {{ csrf_field() }}
           <div class="box box-info">
             <!-- /.box-header -->

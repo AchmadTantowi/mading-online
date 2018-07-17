@@ -70,6 +70,7 @@ class ContentController extends Controller
                 $content->active = 1;
                 $content->save();
                 $image->move(public_path().'/images/', $name);
+                // $image->move('mading-online/public/images/', $name);
                 
             } else {
                 $content = new Content;
