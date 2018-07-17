@@ -45,18 +45,28 @@ class ContentController extends Controller
             'title' => 'required',
             // 'filename' => 'required',
             // 'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+        
 
         DB::beginTransaction();
         try{
 
             if($category == 'Banner'){
+                $ext = $image->getClientOriginalExtension();
+                // dd($ext);
                 $name = $image->getClientOriginalName();
 
                 $content = new Content;
                 $content->title = $request->get('title');
                 $content->category = $category;
                 $content->image = $name;
+                if($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg'){
+                    $content->type_content = 'gambar';
+                } else {
+                    $content->type_content = 'video';
+                }
                 $content->active = 1;
                 $content->save();
                 $image->move(public_path().'/images/', $name);
@@ -69,17 +79,6 @@ class ContentController extends Controller
                 $content->active = 1;
                 $content->save();
             }
-
-            // foreach($request->file('filename') as $image)
-            // {
-            //     $name = $image->getClientOriginalName();
-
-            //     $imageContent = new ImageContent;
-            //     $imageContent->content_id = $content->id;
-            //     $imageContent->image = $name;
-            //     $imageContent->save();
-            //     $image->move(public_path().'/images/', $name);
-            // }
 
             DB::commit();
        

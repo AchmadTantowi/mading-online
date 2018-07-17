@@ -22,6 +22,7 @@
           </ul>
         </div>
         @endif  
+        
         <!-- <form method="POST" action="/mading-online/public/admin/content/save-content"> -->
         <form method="POST" enctype="multipart/form-data" action="/admin/content/save-content">
               {{ csrf_field() }}
