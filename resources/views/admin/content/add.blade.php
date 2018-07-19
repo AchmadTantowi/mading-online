@@ -23,8 +23,8 @@
         </div>
         @endif  
         
-        <!-- <form method="POST" action="/mading-online/public/admin/content/save-content"> -->
-        <form method="POST" enctype="multipart/form-data" action="/admin/content/save-content">
+        <form method="POST" enctype="multipart/form-data" action="/mading-online/public/admin/content/save-content">
+        <!-- <form method="POST" enctype="multipart/form-data" action="/admin/content/save-content"> -->
               {{ csrf_field() }}
           <div class="box box-info">
             <!-- /.box-header -->
@@ -40,6 +40,7 @@
                     <option value="Quote">Quote</option>
                     <option value="Information">Information</option>
                     <option value="Banner">Banner</option>
+					<option value="Video">Video</option>
                   </select>
                 </div>
                 <label for="exampleInputEmail1" id="image-label">Image</label>
@@ -92,7 +93,7 @@
         $('#image').hide(); 
         $('#image-label').hide(); 
         $('#category').change(function(){
-            if($('#category').val() == 'Banner') {
+            if($('#category').val() == 'Banner' || $('#category').val() == 'Video') {
                 $('#image').show(); 
                 $('#image-label').show();
                 $('#contents').hide(); 
