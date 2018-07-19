@@ -53,7 +53,7 @@ class ContentController extends Controller
         DB::beginTransaction();
         try{
 
-            if($category == 'Banner'){
+            if($category == 'Banner' || $category == 'Video'){
                 $ext = $image->getClientOriginalExtension();
                 // dd($ext);
                 $name = $image->getClientOriginalName();
