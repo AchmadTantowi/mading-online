@@ -34,7 +34,7 @@ class HomeController extends Controller
         $getTimelines = Twitter::getUserTimeline(['screen_name' => 'PendaftaranUAI', 'count' => 10, 'format' => 'array']);
         $contents = Content::where('category', 'Information')->where('active', 1)->get();
         $banners = Content::where('category', 'Banner')->where('active', 1)->where('type_content', 'gambar')->get();
-        $videos = Content::where('category', 'Banner')->where('active', 1)->where('type_content', 'video')->get();
+        $videos = Content::where('category', 'Video')->where('active', 1)->where('type_content', 'video')->get();
         $quotes = Content::where('category', 'Quote')->where('active', 1)->get();
         return view('welcome', compact('contents', 'banners', 'quotes', 'getTimelines', 'videos'));
     }
