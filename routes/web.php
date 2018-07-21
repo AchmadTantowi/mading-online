@@ -40,6 +40,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/user/add', 'Admin\UserController@add');
     Route::post('/user/save-user', 'Admin\UserController@save');
+    Route::post('/user/update-user/{id}', 'Admin\UserController@update');
     Route::get('/user/delete/{id}', 'Admin\UserController@delete');
+    Route::get('/user/edit/{id}', 'Admin\UserController@edit');
     Route::get('/user', 'Admin\UserController@index');
 });

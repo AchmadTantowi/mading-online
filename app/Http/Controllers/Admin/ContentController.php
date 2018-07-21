@@ -14,7 +14,7 @@ class ContentController extends Controller
     
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
@@ -54,7 +54,7 @@ class ContentController extends Controller
             ->update(['active' => 0]);
             $content->active = 1;
         }
-        if($content->category == 'Banner'){
+        if($content->category == 'Banner' || $content->category == 'Video'){
             if(!is_null($image)){
                 $ext = $image->getClientOriginalExtension();
                 $name = $image->getClientOriginalName();
@@ -62,7 +62,7 @@ class ContentController extends Controller
                 if($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg'){
                     $content->type_content = 'gambar';
                     $image_resize = Image::make($image->getRealPath());              
-                    $image_resize->resize(300, 180);
+                    $image_resize->resize(500, 300);
                     $image_resize->save(public_path('images/' .$name));
                 } else {
                     
@@ -87,15 +87,13 @@ class ContentController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            // 'filename' => 'required',
-            // 'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'filename' => 'max:10000'
         ]);
 
         DB::beginTransaction();
         try{
 
-            if($category == 'Banner'){
+            if($category == 'Banner' || $category == 'Video'){
                 $ext = $image->getClientOriginalExtension();
                 // dd($ext);
                 $name = $image->getClientOriginalName();
@@ -107,7 +105,7 @@ class ContentController extends Controller
                 if($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg'){
                     $content->type_content = 'gambar';
                     $image_resize = Image::make($image->getRealPath());              
-                    $image_resize->resize(300, 180);
+                    $image_resize->resize(500, 300);
                     $image_resize->save(public_path('images/' .$name));
                 } else {
                     DB::table('contents')

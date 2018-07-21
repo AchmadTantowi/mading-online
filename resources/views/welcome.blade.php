@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <section class="col-lg-4" style="padding-right:50px;">
+        <section class="col-lg-6" style="padding-right:50px;">
             <div class="box box-solid">
             <div class="box-header with-border">
             
@@ -98,38 +98,9 @@
             </div>
         </section>
 
-        <section class="col-lg-4">
-            <div class="box box-solid">
-                <div class="box-header with-border">
-                
-                </div>
-                <div class="box-body">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                        @foreach( $contents as $content )
-                            <li data-target="#carousel-example-generic" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-                        @endforeach
-                        </ol>
-                        <div class="carousel-inner">
-                        @foreach( $contents as $content )
-                            <div class="item {{ $loop->first ? 'active' : '' }}">
-                            <h3 class="box-title"><b>{{ $content->title }}</b></h3>
-                            {!! $content->content !!}
-                            </div>
-                        @endforeach
-                        </div>
-                        <a class="left" href="#carousel-example-generic" data-slide="prev">
-                        <span class="fa fa-angle-left"></span>
-                        </a>
-                        <a class="right" href="#carousel-example-generic" data-slide="next">
-                        <span class="fa fa-angle-right"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
 
-        <section class="col-lg-4">
+        <section class="col-lg-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                 

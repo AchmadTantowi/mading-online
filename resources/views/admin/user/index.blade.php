@@ -11,8 +11,8 @@
     
     <!-- Main content -->
     <section class="content">
-    <a href="/mading-online/public/admin/user/add" class="btn btn-primary">+ Add</a>
-    <!-- <a href="/admin/user/add" class="btn btn-primary">+ Add</a> -->
+    <!-- <a href="/mading-online/public/admin/user/add" class="btn btn-primary">+ Add</a> -->
+    <a href="/admin/user/add" class="btn btn-primary">+ Add</a>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -26,6 +26,7 @@
                   <th>No</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Provider</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -36,9 +37,15 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $user->name }}</td>
                   <td>{{ $user->email }}</td>
+                  <td>{{ $user->provider }}</td>
                   <td>
-                    <a href="/mading-online/public/admin/user/delete/{{ $user->id }}">
-                    <!-- <a href="/admin/user/delete/{{ $user->id }}"> -->
+                    @if($user->provider != 'twitter')
+                    <a href="/admin/user/edit/{{ $user->id }}">
+                    Edit
+                    </a> |
+                    @endif
+                    <!-- <a href="/mading-online/public/admin/user/delete/{{ $user->id }}"> -->
+                    <a href="/admin/user/delete/{{ $user->id }}">
                       Delete
                     </a>
                   </td>

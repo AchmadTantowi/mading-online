@@ -40,9 +40,10 @@
                     <option value="Quote">Quote</option>
                     <option value="Information">Information</option>
                     <option value="Banner">Banner</option>
+                    <option value="Video">Video</option>
                   </select>
                 </div>
-                <label for="exampleInputEmail1" id="image-label">Image</label>
+                <label for="exampleInputEmail1" id="image-label">File</label>
                 <div class="input-group control-group increment" id="image">
                   <input type="file" name="filename" class="form-control" >
                 </div>
@@ -92,7 +93,7 @@
         $('#image').hide(); 
         $('#image-label').hide(); 
         $('#category').change(function(){
-            if($('#category').val() == 'Banner') {
+            if($('#category').val() == 'Banner' || $('#category').val() == 'Video') {
                 $('#image').show(); 
                 $('#image-label').show();
                 $('#contents').hide(); 

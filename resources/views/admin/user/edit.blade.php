@@ -23,7 +23,7 @@
         </div>
         @endif  
         <!-- <form method="POST" action="/mading-online/public/admin/user/save-content"> -->
-        <form method="POST" action="/admin/user/save-user">
+        <form method="POST" action="/admin/user/update-user/{{$user->id}}">
               {{ csrf_field() }}
           <div class="box box-info">
             <!-- /.box-header -->
@@ -31,15 +31,16 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="exampleInputEmail1">
+                  <input type="text" name="name" class="form-control" value="{{ $user->name }}"  id="exampleInputEmail1">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+                  <input type="email" name="email" class="form-control"  value="{{ $user->email }}" id="exampleInputEmail1">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
                   <input type="password" name="password" class="form-control" id="exampleInputEmail1">
+                  <span>* Jika password tidak diubah kosongkan saja</span>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Confirm Password</label>

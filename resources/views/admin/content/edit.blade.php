@@ -40,6 +40,7 @@
                     <option {{ $contents->category == 'Quote' ? 'selected':'' }}>Quote</option>
                     <option {{ $contents->category == 'Information' ? 'selected':'' }}>Information</option>
                     <option {{ $contents->category == 'Banner' ? 'selected':'' }}>Banner</option>
+                    <option {{ $contents->category == 'Video' ? 'selected':'' }}>Video</option>
                   </select>
                 </div>
                 @if($contents->type_content == 'video')
@@ -51,8 +52,8 @@
                   </select>
                 </div>
                 @endif
-                @if($contents->category == 'Banner')
-                <label for="exampleInputEmail1" >Image</label><br>
+                @if($contents->category == 'Banner' || $contents->category == 'Video')
+                <label for="exampleInputEmail1" >File</label><br>
                 @if (!is_null($contents->image))
                     @if($contents->type_content == 'gambar')
                     <img src="{{ asset('images/').'/'.$contents->image }}">
@@ -83,7 +84,7 @@
                     </div>
                   </div>
                 </div> -->
-                @if($contents->category != 'Banner')
+                @if($contents->category == 'Quote' || $contents->category == 'Information')
                 <div class="form-group" id="contents">
                     <label for="exampleInputPassword1">Content</label>
                     <textarea id="editor1" name="content" rows="10" cols="80">
