@@ -11,7 +11,7 @@
  Target Server Version : 100132
  File Encoding         : 65001
 
- Date: 18/07/2018 00:23:37
+ Date: 21/07/2018 13:47:30
 */
 
 SET NAMES utf8mb4;
@@ -32,20 +32,18 @@ CREATE TABLE `contents` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of contents
 -- ----------------------------
 BEGIN;
-INSERT INTO `contents` VALUES (7, 'Penyejuk jiwa', 'Quote', NULL, '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>', NULL, 1, '2018-07-09 14:47:49', '2018-07-09 14:47:49');
-INSERT INTO `contents` VALUES (9, 'Selamat Datang di Website Universitas Pamulang', 'Information', NULL, '<p>Kami Menyambut baik dengan adanya Website Universitas Pamulang yang baru, dengan harapan dipublikasinya website ini kampus berharap : Peningkatan layanan pendidikan kepada mahasiswa/i, orangtua, dan masyarakat pada umumnya semakin meningkat. Sebaliknya orangtua dapat mengakses informasi tentang kegiatan akademik dan non akademik putra &ndash; puterinya di kampus ini.</p>', NULL, 1, '2018-07-09 14:53:02', '2018-07-09 14:53:02');
-INSERT INTO `contents` VALUES (10, 'Pengukuhan guru besar', 'Banner', 'web-banner-guru-besar.jpg', NULL, 'gambar', 1, '2018-07-09 23:33:34', '2018-07-09 23:33:34');
-INSERT INTO `contents` VALUES (11, 'Kluster utama', 'Banner', 'web-banner-prestasi-penelitian.jpg', NULL, 'gambar', 1, '2018-07-09 23:48:03', '2018-07-09 23:48:03');
-INSERT INTO `contents` VALUES (12, 'Halal bihalal', 'Banner', 'WhatsApp Image 2018-07-11 at 1.37.22 PM.jpeg', NULL, 'gambar', 1, '2018-07-12 03:26:52', '2018-07-12 03:26:52');
-INSERT INTO `contents` VALUES (13, 'kunci sukses', 'Quote', NULL, '<p>key of success adalah kunci kesuksean</p>', NULL, 1, '2018-07-17 16:40:17', '2018-07-17 16:40:17');
-INSERT INTO `contents` VALUES (14, 'tres', 'Banner', 'logo-edu-black.png', NULL, 'gambar', 1, '2018-07-17 16:51:26', '2018-07-17 16:51:26');
-INSERT INTO `contents` VALUES (16, 'qwqw', 'Banner', 'status whatsapp romantis durasi 30 detik.mp4', NULL, 'video', 1, '2018-07-17 17:02:03', '2018-07-17 17:02:03');
+INSERT INTO `contents` VALUES (26, 'Video', 'Video', 'status whatsapp romantis durasi 30 detik.mp4', NULL, 'video', 1, '2018-07-21 05:05:18', '2018-07-21 05:16:54');
+INSERT INTO `contents` VALUES (27, 'Video 2', 'Video', 'KANGEN WHATSAPP STATUS VIDEO 30DETIK.mp4', NULL, 'video', 0, '2018-07-21 05:05:35', '2018-07-21 05:05:35');
+INSERT INTO `contents` VALUES (28, 'Banner', 'Banner', 'Halal bihalal.jpeg', NULL, 'gambar', 1, '2018-07-21 05:05:56', '2018-07-21 05:47:16');
+INSERT INTO `contents` VALUES (29, 'Banner 2', 'Banner', 'Goals Phase 1.jpeg', NULL, 'gambar', 1, '2018-07-21 05:07:29', '2018-07-21 05:07:29');
+INSERT INTO `contents` VALUES (30, 'Info 1', 'Information', NULL, '<p>Intervention Image has optional support for&nbsp;<a href=\"http://laravel.com/\">Laravel</a>&nbsp;and comes with a&nbsp;<strong>Service Provider and Facades</strong>&nbsp;for easy integration. The&nbsp;<code>vendor/autoload.php</code>&nbsp;is included by Laravel, so you don&#39;t have to require or autoload manually. Just see the instructions below.</p>', NULL, 1, '2018-07-21 05:09:15', '2018-07-21 05:09:15');
+INSERT INTO `contents` VALUES (31, 'Quote', 'Quote', NULL, '<p>Dalam hidup, terkadang kita membutuhkan kata kata mutiara atau kata kata bijak kehidupan sebagai pengingat untuk bisa menjadi manusia yang lebih baik. Meskipun begitu, kita harus bisa mengamalkannya dengan perbuatan juga.</p>', NULL, 1, '2018-07-21 05:10:14', '2018-07-21 05:46:32');
 COMMIT;
 
 -- ----------------------------
@@ -136,14 +134,15 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 BEGIN;
 INSERT INTO `users` VALUES (1, 'Achmad Tantowi', NULL, 'http://pbs.twimg.com/profile_images/869783174401753089/0x3ApbPQ_normal.jpg', '65d90fc6d307590b14e9e1800d4e8eab', '3z9G7pSM4QdOB0OC3arem3YWcCGE8iUrE29upzeSmDbnBVgrTIhOu91pKufX', '2018-06-18 09:30:31', '2018-06-18 09:30:31');
-INSERT INTO `users` VALUES (2, 'Joko', 'joko@mail.com', NULL, '$2y$10$K/AtjmzYv3SnTsWxMFf1iuRmp7Fda9q7vHEaJcp9EN66ocseq/CyC', '6PpENCytNMSrjhe9piXYhQq8JHlwUk29y1w7ZH5XQZ9SxVyCWDluc5G5SUVe', '2018-06-18 09:38:05', '2018-06-18 09:38:05');
+INSERT INTO `users` VALUES (2, 'Joko', 'joko@mail.com', NULL, '$2y$10$K/AtjmzYv3SnTsWxMFf1iuRmp7Fda9q7vHEaJcp9EN66ocseq/CyC', 'tq8Lss5cbaYLAxu1wknCmSY6e1t1zNfVhEMJ8bDV335ZjSb2ds96zK9AMQgi', '2018-06-18 09:38:05', '2018-06-18 09:38:05');
+INSERT INTO `users` VALUES (5, 'Owaiiii', 'owai@mail.com', NULL, '$2y$10$/KVXkvGCc.q7JcLiPkRjsOe2FjTmYmyRehvF.D5LVO6JiB5fcFTiu', 'mnuIliae9cd9BX63YaTa6LT1dcqBO4Y9zgX9QFuVYqkhWrcCksbu5G20Gp0v', '2018-07-21 06:28:40', '2018-07-21 06:32:02');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
