@@ -179,6 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Thujohn\Twitter\TwitterServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -231,7 +232,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
     ],  
 
 ];
