@@ -9,11 +9,12 @@ class SocialTwitterAccountService
 {
     public function createOrGetUser(ProviderUser $providerUser)
     {
+        // dd($providerUser);
         $account = SocialTwitterAccount::whereProvider('twitter')
             ->whereProviderUserId($providerUser->getId())
             ->first();
-
-        if ($account) {
+        // dd($account->getId());
+        if (!is_null($account)) {
             return $account->user;
         } else {
 
@@ -22,9 +23,9 @@ class SocialTwitterAccountService
                 'provider' => 'twitter'
             ]);
 
-            $user = User::whereEmail($providerUser->getEmail())->first();
+            // $user = User::whereEmail($providerUser->getEmail())->first();
 
-            if (!$user) {
+            // if (!$user) {
 
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
@@ -32,7 +33,7 @@ class SocialTwitterAccountService
                     'avatar' => $providerUser->getAvatar(),
                     'password' => md5(rand(1,10000)),
                 ]);
-            }
+            // }
 
             $account->user()->associate($user);
             $account->save();
