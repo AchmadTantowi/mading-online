@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <section class="col-lg-6" style="padding-right:50px;">
+        <section class="col-md-6" style="padding-right:50px;">
             <div class="box box-solid">
             <div class="box-header with-border">
             
@@ -100,7 +100,7 @@
 
     
 
-        <section class="col-lg-6">
+        <section class="col-md-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                 
@@ -129,6 +129,7 @@
                         </a>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>

@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function welcome()
     {
 
-        $getTimelines = Twitter::getUserTimeline(['screen_name' => 'PendaftaranUAI', 'count' => 10, 'format' => 'array']);
+        $getTimelines = Twitter::getUserTimeline(['user_id' => '1021645969039880192', 'count' => 20, 'format' => 'array']);
         // $contents = Content::where('category', 'Information')->where('active', 1)->get();
         $banners = Content::where('category', 'Banner')->where('active', 1)->where('type_content', 'gambar')->get();
         $videos = Content::where('category', 'Video')->where('active', 1)->where('type_content', 'video')->get();
