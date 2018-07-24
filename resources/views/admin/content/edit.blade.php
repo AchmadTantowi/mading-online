@@ -23,8 +23,8 @@
         </div>
         @endif  
         
-        <!-- <form method="POST" enctype="multipart/form-data" action="/mading-online/public/admin/content/save-content"> -->
-        <form method="POST" enctype="multipart/form-data" action="/admin/content/edit-content/{{$contents->id}}">
+        <form method="POST" enctype="multipart/form-data" action="{{ url('/admin/content/edit-content/') }}/{{$contents->id}}">
+        <!-- <form method="POST" enctype="multipart/form-data" action="/admin/content/edit-content/{{$contents->id}}"> -->
               {{ csrf_field() }}
           <div class="box box-info">
             <!-- /.box-header -->

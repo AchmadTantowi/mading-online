@@ -40,12 +40,13 @@
                   <td>{{ $user->provider }}</td>
                   <td>
                     @if($user->provider != 'twitter')
-                    <a href="/admin/user/edit/{{ $user->id }}">
+                    <a href="{{ url('/admin/user/edit/') }}/{{ $user->id }}">
+                    <!-- <a href="/admin/user/edit/{{ $user->id }}"> -->
                     Edit
                     </a> |
                     @endif
-                    <!-- <a href="/mading-online/public/admin/user/delete/{{ $user->id }}"> -->
-                    <a href="/admin/user/delete/{{ $user->id }}">
+                    <a href="{{ url('/admin/user/delete/') }}/{{ $user->id }}">
+                    <!-- <a href="/admin/user/delete/{{ $user->id }}"> -->
                       Delete
                     </a>
                   </td>

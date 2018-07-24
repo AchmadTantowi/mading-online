@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row" style="margin-left:-130px;margin-right:-130px;">
-        <div class="col-md-6">
+    <div class="row" style="margin-left:-380px;margin-right:-380px;">
+        <div class="col-md-5">
             <div class="box">
                 <!-- <div class="box-header with-border">
                     <h3 class="box-title">Monthly Recap Report</h3>
@@ -63,11 +63,11 @@
                         <span class="fa fa-angle-right"></span>
                         </a> -->
                     <!-- </div> -->
-                </div><br><br><br>
+                </div>
             </div>
         </div>
 
-        <section class="col-lg-6" style="padding-right:50px;">
+        <section class="col-md-5" style="padding-right:50px;">
             <div class="box box-solid">
             <div class="box-header with-border">
             
@@ -100,7 +100,7 @@
 
     
 
-        <section class="col-lg-6">
+        <section class="col-md-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                 
@@ -129,6 +129,7 @@
                         </a>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>

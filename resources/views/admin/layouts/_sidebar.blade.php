@@ -19,22 +19,22 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-          <!-- <a href="/mading-online/public/admin/dashboard"> -->
-          <a href="/admin/dashboard">
+          <a href="{{ url('/admin/dashboard') }}">
+          <!-- <a href="/admin/dashboard"> -->
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/content') ? 'active' : '' }}">
-          <!-- <a href="/mading-online/public/admin/content"> -->
-          <a href="/admin/content">
+          <a href="{{ url('/admin/content') }}">
+          <!-- <a href="/admin/content"> -->
           <i class="fa fa-edit"></i> <span>Content</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/user') ? 'active' : '' }}">
-          <!-- <a href="/mading-online/public/admin/user"> -->
-          <a href="/admin/user">
+          <a href="{{ url('/admin/user') }}">
+          <!-- <a href="/admin/user"> -->
           <i class="fa fa-user"></i> <span>Users</span>
             <span class="pull-right-container"></span>
           </a>

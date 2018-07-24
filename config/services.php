@@ -36,9 +36,9 @@ return [
     ],
 
     'twitter' => [
-        'client_id' => '4FndlmD0fWINDspyIFrcDek9p',
-        'client_secret' => '4m7nxP9OrvvpWJzzMDD7U6RUs16YOlgbsDLecpY0wXTJfVwsMU',
-        'redirect' => 'http://localhost:8000/callback',
+        'client_id' => 'YuHOCkDHUqMeJdRPAY1Nda4DU',
+        'client_secret' => 'KagHA72MvghCfcJETaAl7oka5O9GtrExOkKKxjbAExgmZzXONr',
+        'redirect' => 'http://localhost:8000/mading-online/public/callback',
     ],
 
 ];

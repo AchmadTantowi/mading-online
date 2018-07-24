@@ -11,8 +11,8 @@
     
     <!-- Main content -->
     <section class="content">
-    <!-- <a href="/mading-online/public/admin/content/add" class="btn btn-primary">+ Add</a> -->
-    <a href="/admin/content/add" class="btn btn-primary">+ Add</a>
+    <a href="{{ url('/admin/content/add') }}" class="btn btn-primary">+ Add</a>
+    <!-- <a href="/admin/content/add" class="btn btn-primary">+ Add</a> -->
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -40,10 +40,11 @@
                     <!-- <a href="/information/{{ $content->id }}" target="_blank">
                     <i class="fa fa-eye"></i> View 
                     </a> -->
-                    <a href="/admin/content/edit/{{ $content->id }}">
+                    <!-- <a href="/admin/content/edit/{{ $content->id }}"> -->
+                    <a href="{{ url('/admin/content/edit/') }}/{{ $content->id }}">
                     Edit
                     </a> |
-                    <a href="/mading-online/public/admin/content/delete/{{ $content->id }}">
+                    <a href="{{ url('/admin/content/delete/')}}/{{ $content->id }}">
                     <!-- <a href="/admin/content/delete/{{ $content->id }}"> -->
                     Delete
                     </a>
