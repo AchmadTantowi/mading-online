@@ -82,61 +82,66 @@ class ContentController extends Controller
 
     public function saveContent(Request $request)
     {
-        $category = $request->get('category');
         $image = $request->file('filename');
+        if(is_null($image)){
+            alert()->info('Failed','Ukuran file terlalu besar');
+            return redirect('/admin/content');
+        } else {
+            // dd($image);
+            $category = $request->get('category');
+            
 
-        $this->validate($request, [
-            'title' => 'required',
-            'filename' => 'max:10000'
-        ]);
+           
 
-        DB::beginTransaction();
-        try{
+            DB::beginTransaction();
+            try{
 
-            if($category == 'Banner' || $category == 'Video'){
-                $ext = $image->getClientOriginalExtension();
-                // dd($ext);
-                $name = $image->getClientOriginalName();
+                if($category == 'Banner' || $category == 'Video'){
+                    $ext = $image->getClientOriginalExtension();
+                    // dd($ext);
+                    $name = $image->getClientOriginalName();
 
-                $content = new Content;
-                $content->title = $request->get('title');
-                $content->category = $category;
-                $content->image = $name;
-                if($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg'){
-                    $content->type_content = 'gambar';
-                    $image_resize = Image::make($image->getRealPath());              
-                    $image_resize->resize(500, 300);
-                    $image_resize->save(public_path('images/' .$name));
+                    $content = new Content;
+                    $content->title = $request->get('title');
+                    $content->category = $category;
+                    $content->image = $name;
+                    if($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg'){
+                        $content->type_content = 'gambar';
+                        $image_resize = Image::make($image->getRealPath());              
+                        $image_resize->resize(500, 300);
+                        $image_resize->save(public_path('images/' .$name));
+                    } else {
+                        DB::table('contents')
+                        ->where('type_content', 'video')
+                        ->update(['active' => 0]);
+                        $content->type_content = 'video';
+                        $image->move(public_path().'images/', $name);
+                    }
+                    $content->active = 1;
+                    $content->save();
+                    // $image->move('mading-online/public/images/', $name);
+                    
                 } else {
-                    DB::table('contents')
-                    ->where('type_content', 'video')
-                    ->update(['active' => 0]);
-                    $content->type_content = 'video';
-                    $image->move(public_path().'/images/', $name);
+                    $content = new Content;
+                    $content->title = $request->get('title');
+                    $content->category = $category;
+                    $content->content = $request->get('content');
+                    $content->active = 1;
+                    $content->save();
                 }
-                $content->active = 1;
-                $content->save();
-                // $image->move('mading-online/public/images/', $name);
-                
-            } else {
-                $content = new Content;
-                $content->title = $request->get('title');
-                $content->category = $category;
-                $content->content = $request->get('content');
-                $content->active = 1;
-                $content->save();
-            }
 
-            DB::commit();
-       
-            alert()->success('Success','Successfully');
-            return redirect('/admin/content');
+                DB::commit();
+        
+                alert()->success('Success','Successfully');
+                return redirect('/admin/content');
+            }
+            catch(QueryException $e){
+                DB::rollback();
+                alert()->error('Failed','Not Saved');
+                return redirect('/admin/content');
+            }
         }
-        catch(QueryException $e){
-            DB::rollback();
-            alert()->error('Failed','Not Saved');
-            return redirect('/admin/content');
-        }    
+                
     }
 
     public function viewContent($id){
