@@ -88,11 +88,10 @@ class ContentController extends Controller
             return redirect('/admin/content');
         } else {
             // dd($image);
+            $this->validate($request, [
+                'filename' => 'mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4,video/webm'
+            ]);
             $category = $request->get('category');
-            
-
-           
-
             DB::beginTransaction();
             try{
 
