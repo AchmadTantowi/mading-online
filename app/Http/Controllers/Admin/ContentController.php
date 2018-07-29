@@ -19,7 +19,7 @@ class ContentController extends Controller
 
     public function index()
     {
-        $contents = Content::get();
+        $contents = Content::where('active', 1)->get();
         return view('admin.content.index', compact('contents'));
     }
 
