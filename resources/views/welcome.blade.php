@@ -108,16 +108,16 @@
                 <div class="box-body">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                        @foreach( $getTimelines as $getTimeline )
+                        @foreach( $getDatas as $getData )
                             <li data-target="#carousel-example-generic" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
                         @endforeach
                         </ol>
                         <div class="carousel-inner">
-                        @foreach( $getTimelines as $getTimeline )
+                        @foreach( $getDatas as $getData )
                             <div class="item {{ $loop->first ? 'active' : '' }}">
-                            <h3 class="box-title"><b><img src="http://pbs.twimg.com/profile_images/1592378929/uai.jpg_normal.jpg">  {{ $getTimeline['user']['name'] }}</b></h3>
-                            <p><i>{!! date('d-m-Y', strtotime($getTimeline['created_at'])); !!}</i></p>
-                            {!! $getTimeline['text'] !!}
+                            <h3 class="box-title"><b><img src="http://pbs.twimg.com/profile_images/1592378929/uai.jpg_normal.jpg">  {{ $getData['user']['name'] }}</b></h3>
+                            <p><i>{!! date('d-m-Y', strtotime($getData['created_at'])); !!}</i></p>
+                            {!! $getData['text'] !!}
                             </div>
                         @endforeach
                         </div>
