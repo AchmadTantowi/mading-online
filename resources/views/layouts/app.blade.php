@@ -29,7 +29,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Mading Online
+                        <!-- <img src="https://s3.amazonaws.com/wll-community-production/images/no-avatar.png" class="img-circle" alt="User Image"> -->
+                        <!-- Mading Online -->
                     </a>
                 </div>
 
